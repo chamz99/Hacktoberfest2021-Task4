@@ -1,29 +1,42 @@
-#include <studio.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-
-int main()
+void bubble(int arr[], size_t size)
 {
-    bool swap;
-    int n=5,j;
-    int arr[5]={58,89,71,35,6};
+	int j = 0;
+	int temp;
+	int swap = 1;
+	int n = size - 1;
     
-    
-    do{
-        swap=false;
-        for(j=0;j<n;j++)
-        {
-            if (arr[j]>arr[j-1]);
+    do {
+    swap=0;
+        for(j=0;j<n;++j){
+            if(arr[j + 1] < arr[j])
             {
-                temp=arr[j];
-                arr[j]=arr[j+1];
-                arr[j+1]=temp
-                swap=false;
+              	swap= 1;
+				temp = arr[j];
+				arr[j] = arr[j + 1];
+				arr[j + 1] = temp;  
             }
+        
         }
-    }while(swap);
-    
-    for(m=0;m<n;m--)
-        {
-            printf("%s ",arr[l]);
-        }
+        --n;
+    }while (swap);
+
+
+}
+
+int main(void)
+{
+	int a[] = {58,89,71,35,6};
+
+bubble(a, sizeof a / sizeof (int));
+
+	unsigned m = 0;
+	for(; m < (sizeof a / sizeof (int)); ++m)
+		{
+			printf("%d\n", a[m]);
+		}
+		
+	exit(0);
 }
